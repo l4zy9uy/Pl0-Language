@@ -103,6 +103,16 @@ TokenType getToken(){
 		ch = getCh();
 		return GTR;
 	}
+	else if(ch == '+')
+	{
+		ch = getCh();
+		return PLUS;
+	}
+	else if(ch == '-')
+	{
+		ch = getCh();
+		return MINUS;
+	}
 	else if(ch == '*')
 	{
 		ch = getCh();
