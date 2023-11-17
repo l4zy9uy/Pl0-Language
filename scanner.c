@@ -113,6 +113,48 @@ TokenType getToken(){
 		ch = getCh();
 		return PERIOD;
 	}
+	else if (ch == ':')
+	{
+		ch = getCh();
+		if (ch == '=')
+		{
+			ch = getCh();
+			return ASSIGN;
+		}
+		
+		return PERIOD;
+	} else if (ch == '>')
+	{
+		ch = getCh();
+		if (ch == '=')
+		{
+			ch = getCh();
+			return GEQ;
+		}
+		return GTR;
+	} else if (ch == '<')
+	{
+		ch = getCh();
+		if (ch == '=')
+		{
+			ch = getCh();
+			return LEQ;
+		} else if (ch == '>')
+		{
+			ch = getCh();
+			return NEQ;
+		}
+		
+		return LSS;
+	} else if (ch == '/')
+	{
+		ch = getCh();
+		return SLASH;
+	} else if (ch == '%')
+	{
+		ch = getCh();
+		return PERCENT;
+	}
     return NONE;
 }
 
