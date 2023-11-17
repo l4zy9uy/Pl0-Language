@@ -24,7 +24,7 @@ TokenType checkKeyword(char * str){
 }
 
 char getCh(){
-  return fgetc(f);
+  return toupper(fgetc(f));
 }
 
 TokenType getToken(){
@@ -68,14 +68,35 @@ TokenType getToken(){
 		ch = getCh();
 		return COMMA;
 	}
+	else if(ch == '(')
+	{
+		ch = getCh();
+		return LPARENT;
+	}
+	else if(ch == ')')
+	{
+		ch = getCh();
+		return RPARENT;
+	}
+	else if(ch == '[')
+	{
+		ch = getCh();
+		return LBRACK;
+	}
+	else if(ch == ']')
+	{
+		ch = getCh();
+		return RBRACK;
+	}
 	else if (ch == ':')
 	{
 		ch = getCh();
 		if(ch == '=')
 		{
 			ch = getCh();
-			return EQU;
+			return ASSIGN;
 		}
+		return EQU;
 	}
 	else if(ch == '>')
 	{
@@ -86,6 +107,11 @@ TokenType getToken(){
 	{
 		ch = getCh();
 		return TIMES;
+	}
+	else if(ch == '.')
+	{
+		ch = getCh();
+		return PERIOD;
 	}
     return NONE;
 }
